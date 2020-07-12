@@ -14,4 +14,4 @@ In the example bellow, we had made a git clone in /opt/ directory
 
 1 - Ignore pinned tweets in order to trully return last tweet
 
-2 - Do integration with existent telegram bot to allow insert automatically a twitter account to monitor
+2 - Do an integration with existents telegram bots to allow insert automatically a twitter account to monitor from telegram
