@@ -1,6 +1,6 @@
 # TwitterToTelegram
 -------------
-- Configurations file
+- In "Configurations" file
 Here, you just have to change filling with your personal settings
 
 - Crontab file
