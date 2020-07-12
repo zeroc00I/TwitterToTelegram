@@ -1,7 +1,7 @@
 # TwitterToTelegram
 -------------
 - In "Configurations" file, you just have to change filling with your personal settings
-
+- Inside tweet.sh, pay attention to change value from listTwitterUsersToCheck variable, because there is where you have to fill which twitter users you will grab.
 - Crontab file
 In order to check any minute if there is some update on monitored twitter accounts, you can insert a crontab file in your machine
 In the example bellow, we made a git clone in /opt/ directory
