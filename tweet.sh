@@ -56,7 +56,7 @@ function updatingLastTweetsFromUser(){
 function sendNewsToTelegramChannel(){
   echo "Function to send news to telegram channel"
   encodedNewTweetUpdate=$(urlencode $lastTwoTweetsFetched)
-  telegramUrlToSendContent=$apiUrlTelegram"sendmessage?chat_id="$chatID"&text="$encodedNewTweetUpdate;
+  telegramUrlToSendContent=$apiUrlTelegram"sendmessage?chat_id="$chatID"&text=%5B%40$userToCheck%5D"$encodedNewTweetUpdate;
   echo "Fazendo curl para [$telegramUrlToSendContent]"
 	curl -s $telegramUrlToSendContent;
 }
