@@ -1,5 +1,5 @@
 #!/bin/bash
-if [ ! -f "" ];then
+if [ ! -f "lastMonitTwitter" ];then
 touch lastMonitTwitter
 fi
 monitoredTwitterUser="HusseiN98D"
