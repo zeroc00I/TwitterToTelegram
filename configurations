@@ -1,0 +1,3 @@
+apiTokenTelegram="123456789:AABBCC"
+apiUrlTelegram="https://api.telegram.org/bot"$apiTokenTelegram"/"
+chatID="-123456789"
