@@ -11,6 +11,13 @@ In the example bellow, we had made a git clone in /opt/ directory
 ```
 * * * * * cd /opt/TwitterToTelegram;./tweet.sh
 ```
+
+## Running Example 
+-------------
+Now your telegram chat group can comment about some tweet made by your monitored users \o/
+
+![alt text](https://github.com/bminossi/TwitterToTelegram/blob/master/examples/working.png?raw=true)
+
 -------------
 ## TODO:
 
