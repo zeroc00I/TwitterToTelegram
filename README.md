@@ -15,7 +15,7 @@ In the example bellow (We had made a git clone in /opt/ directory)
 
 ## Running Example 
 -------------
-Now your telegram chat group can comment about some tweet made by your monitored users \o/
+Now your telegram chat group can comment with you all about some tweet made by your monitored users \o/
 
 ![alt text](https://github.com/bminossi/TwitterToTelegram/blob/master/examples/working.png?raw=true)
 
