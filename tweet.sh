@@ -11,7 +11,7 @@ function dependencies() {
   if [[ "$ConfirmIfallParamsAreFilled" -eq 3 ]] ; then
     source configurations
     else
-    echo "You didnt fill the configuration file or you've deleted him, so you have to recreate";
+    echo "You didnt fill the configuration file or you've deleted it, so you have to recreate it";
   fi
 }
 
