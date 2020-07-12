@@ -8,19 +8,6 @@ function dependencies() {
   fi
 }
 
-function someNewToSendByTelegram() {
-  lastTwoTweetsStoredMd5=($(cat $userToCheck | md5sum))
-  lastTwoTweetsFetchedMd5=($(echo $userToCheck | md5sum))
-
-  if [ "$lastTwoTweetsStoredMd5" == "$lastTwoTweetsFetchedMd5" ];then
-    echo "Nothing new to $userToCheck"
-    exit
-    fi
-    echo "There are some news! Logging and Sending to telegram channel"
-    updatingLastTweetsFromUser $lastTwoTweetsFetchedMd5
-    sendNewsToTelegramChannel $lastTwoTweetsFetched
-}
-
 function fetchLastTwoTweetsFromUserMonitored() {
   resultOfFetch=$(
     curl -s \
@@ -41,6 +28,20 @@ function fetchLastTwoTweetsFromUserMonitored() {
   )
     someNewToSendByTelegram $lastTwoTweetsFetched
 }
+
+function someNewToSendByTelegram() {
+  lastTwoTweetsStoredMd5=($(cat $userToCheck))
+  lastTwoTweetsFetchedMd5=($(echo $lastTwoTweetsFetched | md5sum))
+
+  if [ "$lastTwoTweetsStoredMd5" == "$lastTwoTweetsFetchedMd5" ];then
+    echo "Nothing new to $userToCheck"
+    return
+    fi
+    echo "There are some news to $userToCheck [$lastTwoTweetsStoredMd5/$lastTwoTweetsFetchedMd5]! Logging and Sending to telegram channel"
+    updatingLastTweetsFromUser $lastTwoTweetsFetchedMd5
+    sendNewsToTelegramChannel $lastTwoTweetsFetched
+}
+
 
 function updatingLastTweetsFromUser(){
   echo $lastTwoTweetsFetchedMd5 > $userToCheck
