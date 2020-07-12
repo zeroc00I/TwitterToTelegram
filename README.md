@@ -6,8 +6,9 @@
   - You can get your apiTokenTelegram for your current Telegram Bot calling the user @BotFather on Telegram and clicking on start button. 
   - Your ChatID can be easily visible following this steps: https://youtu.be/I-qI6jeLIsI?t=83
 - Create a Crontab file
-In order to check any minute if there is some update on monitored twitter accounts, you can insert a crontab file in your machine
-In the example bellow, we had made a git clone in /opt/ directory
+In order to check any minute if there is some update on monitored twitter accounts. 
+You can insert a crontab file in your machine
+In the example bellow (We had made a git clone in /opt/ directory)
 ```
 * * * * * cd /opt/TwitterToTelegram;./tweet.sh
 ```
