@@ -1,5 +1,6 @@
 # TwitterToTelegram
 -------------
+## Starting
 - In "Configurations" file, you just have to change filling with your personal settings
 - Inside tweet.sh, pay attention to change value from listTwitterUsersToCheck variable, because there is where you have to fill which twitter users you will grab.
 - Create a Crontab file
@@ -9,7 +10,7 @@ In the example bellow, we had made a git clone in /opt/ directory
 * * * * * cd /opt/TwitterToTelegram;./tweet.sh
 ```
 -------------
-TODO:
+## TODO:
 
 1 - Ignore pinned tweets in order to trully return last tweet
 
