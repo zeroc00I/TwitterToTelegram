@@ -1,10 +1,17 @@
 #!/bin/bash
+
 listTwitterUsersToCheck=("CyberResenha" "avanish46")
 
 function dependencies() {
   #Check jq | html2text
   if [ ! -f "$userToCheck" ]; then
     touch $userToCheck
+  fi
+  ConfirmIfallParamsAreFilled=$(cat configurations | cut -d "=" -f2 | sed '/^$/d' | wc -l)
+  if [[ "$ConfirmIfallParamsAreFilled" -eq 3 ]] ; then
+    source configurations
+    else
+    echo "You didnt fill the configuration file or you've deleted him, so you have to recreate";
   fi
 }
 
@@ -42,12 +49,34 @@ function someNewToSendByTelegram() {
     sendNewsToTelegramChannel $lastTwoTweetsFetched
 }
 
-
 function updatingLastTweetsFromUser(){
   echo $lastTwoTweetsFetchedMd5 > $userToCheck
 }
+
 function sendNewsToTelegramChannel(){
   echo "Function to send news to telegram channel"
+  encodedNewTweetUpdate=$(urlencode $lastTwoTweetsFetched)
+  telegramUrlToSendContent=$apiUrlTelegram"sendmessage?chat_id="$chatID"&text="$encodedNewTweetUpdate;
+  echo "Fazendo curl para [$telegramUrlToSendContent]"
+	curl -s $telegramUrlToSendContent;
+}
+
+function urlencode(){
+  local string="$lastTwoTweetsFetched"
+  local strlen=${#string}
+  local encoded=""
+  local pos c o
+
+  for (( pos=0 ; pos<strlen ; pos++ )); do
+     c=${string:${pos}:1}
+     case "$c" in
+        [-_.~a-zA-Z0-9] ) o="${c}" ;;
+        * )               printf -v o '%%%02x' "'$c"
+     esac
+     encoded+="${o}"
+  done
+  echo "${encoded}"    # You can either set a return variable (FASTER)
+  #REPLY="${encoded}"   #+or echo the result (EASIER)... or both... :p
 }
 
 function main() {
