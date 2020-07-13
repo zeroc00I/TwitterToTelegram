@@ -1,6 +1,6 @@
 #!/bin/bash
 
-listTwitterUsersToCheck=("CyberResenha" "avanish46")
+listTwitterUsersToCheck=("CyberResenha" "CVEnew")
 components=("jq" "html2text")
 
 function dependencies() {
@@ -73,6 +73,7 @@ function sendNewsToTelegramChannel() {
 }
 
 function urlencode() {
+  local LC_ALL=C
   local string="$lastTwoTweetsFetched"
   local strlen=${#string}
   local encoded=""
