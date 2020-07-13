@@ -21,7 +21,9 @@ Now your telegram chat group can comment with you all about some tweet made by y
 
 -------------
 ## TODO:
-1 - Ignore utf8 characters, such as "â". We're having problems with Telegram Api after the url encode proccess %e2
+1 - Ignore utf8 characters, such as "â". 
+We're having problems with Telegram Api after the url encode proccess %e2
+Should be %C3%A3
 
 2 - Ignore pinned tweets in order to trully return last tweet
 
