@@ -6,7 +6,7 @@ components=("jq" "html2text")
 function dependencies() {
 
   for component in "${components[@]}"; do
-    command -v $component > /dev/null 2>&1
+    command -v $component >/dev/null 2>&1
     if [ "$?" -eq 1 ]; then
       echo -e "[Check Dependencies Failed]\nConsider to sudo apt install $component"
       exit
@@ -36,13 +36,18 @@ function fetchLastTwoTweetsFromUserMonitored() {
 
   preparingJsonToReadable=$(echo $resultOfFetch | grep -o '{"min_position":.*')
   lastTwoTweetsFetched=$(
-    echo -e $preparingJsonToReadable | grep -m2 "data-aria-label-part...0.*" |
-      # Removing unnecessary escapes
-      tr -d "\\" 2>/dev/null |
-      # removing html tags
-      html2text |
+    for i in {2..3}; do
+      echo -e "$preparingJsonToReadable" |
+        tr -d "\n\\" 2>/dev/null |
+        awk -F'<div class=\"js-tweet-text-container\">' "{print \$$i}" |
+        awk -F'</div>' '{print $1}'
+    done
+  )
+  lastTwoTweetsFetched=$(
+    echo -e $lastTwoTweetsFetched |
       # Fixing images url
-      sed 's#pic.twitter# http://pic.twitter#g'
+      sed 's#pic.twitter# http://pic.twitter#g' |
+      html2text
   )
   someNewToSendByTelegram $lastTwoTweetsFetched
 }
