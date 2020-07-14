@@ -21,10 +21,12 @@ Now your telegram chat group can comment with you all about some tweet made by y
 
 -------------
 ## TODO:
-1 - Ignore utf8 characters, such as "â". 
+1 -  <strike>Ignore utf8 characters, such as "â". 
 We're having problems with Telegram Api after the url encode proccess %e2
-Should be %C3%A3
+Should be %C3%A3</strike>
 
-2 - Ignore pinned tweets in order to trully return last tweet
+2 - When a twitter user have a pinned tweet, let it be at the bottom of content send to telegram.
 
-3 - Do an integration with existents telegram bots to allow insert automatically a twitter account to monitor from telegram
+3 - Ignore pinned tweets in order to trully return last tweet
+
+4 - Do an integration with existents telegram bots to allow insert automatically a twitter account to monitor from telegram
